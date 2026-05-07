@@ -868,6 +868,8 @@ function ExpertQA({ lesson }: { lesson: Lesson }) {
           q.id === newQuestion.id ? { ...q, answer: response.text } : q
         );
         saveQA(answeredList);
+      } else {
+        throw new Error("No answer returned");
       }
     } catch (error) {
       console.error("AI Error:", error);
